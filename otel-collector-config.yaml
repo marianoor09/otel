@@ -1,0 +1,14 @@
+receivers:
+  otlp:
+    protocols:
+      http:
+        endpoint: "0.0.0.0:4318"  # Accept connections from all IP addresses
+
+exporters:
+  debug:  # Print spans to the terminal for debugging
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [debug]
